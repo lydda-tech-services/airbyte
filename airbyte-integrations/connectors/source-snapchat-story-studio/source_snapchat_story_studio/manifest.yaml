@@ -200,18 +200,25 @@ spec:
     additionalProperties: true
     properties:
       client_id:
+        title: Client ID
         order: 1
         type: string
         description: OAuth Client ID
+        airbyte_secret: true
       client_secret:
+        title: Client Secret
         order: 2
         type: string
         description: OAuth Client Secret
+        airbyte_secret: true
       refresh_token:
+        title: Refresh Token
         order: 3
         type: string
         description: OAuth Refresh Token
+        airbyte_secret: true
       start_date:
+        title: Start Date
         order: 4
         type: string
         description: The Start date for collecting reports, in YYYY-MM-DD format.

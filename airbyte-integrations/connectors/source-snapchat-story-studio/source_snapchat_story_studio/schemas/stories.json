@@ -1,1 +1,18 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "type": ["null", "object"]
+    },
+    "audience": {
+      "type": ["null", "object"]
+    },
+    "behavior": {
+      "type": ["null", "object"]
+    },
+    "snapList": {
+      "type": ["null", "array"]
+    }
+  }
+}

@@ -95,6 +95,10 @@ definitions:
     $ref: "#/definitions/base_stream"
     retriever:
       $ref: "#/definitions/retriever"
+      record_selector:
+        extractor:
+          type: DpathExtractor
+          field_path: ["GLOBAL"]
       partition_router:
         type: SubstreamPartitionRouter
         parent_stream_configs:

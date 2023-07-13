@@ -53,7 +53,7 @@ definitions:
       requester:
         $ref: "#/definitions/requester"
         request_parameters:
-          fromDate: "2023-01-01"
+          fromDate: "{{ config['start_date'] }}"
           toDate: "{{ now_utc().strftime('%Y-%m-%d') }}"
     $parameters:
       name: "daily_audience"
@@ -79,7 +79,7 @@ definitions:
       requester:
         $ref: "#/definitions/requester"
         request_parameters:
-          fromDate: "2023-01-01"
+          fromDate: "{{ config['start_date'] }}"
           toDate: "{{ now_utc().strftime('%Y-%m-%d') }}"
     $parameters:
       name: "daily_behavior"
@@ -109,7 +109,7 @@ definitions:
       requester:
         $ref: "#/definitions/requester"
         request_parameters:
-          fromDate: "2023-01-01"
+          fromDate: "{{ config['start_date'] }}"
           toDate: "{{ now_utc().strftime('%Y-%m-%d') }}"
     $parameters:
       name: "stories"
@@ -135,7 +135,7 @@ definitions:
       requester:
         $ref: "#/definitions/requester"
         request_parameters:
-          start_date: "2023-01-01"
+          start_date: "{{ config['start_date'] }}"
           end_date: "{{ now_utc().strftime('%Y-%m-%d') }}"
     $parameters:
       name: "revenue_editions"
@@ -161,7 +161,7 @@ definitions:
       requester:
         $ref: "#/definitions/requester"
         request_parameters:
-          start_date: "2023-01-01"
+          start_date: "{{ config['start_date'] }}"
           end_date: "{{ now_utc().strftime('%Y-%m-%d') }}"
     $parameters:
       name: "revenue_aggregate"

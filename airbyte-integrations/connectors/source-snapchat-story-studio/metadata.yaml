@@ -1,0 +1,19 @@
+data:
+  registries:
+    oss:
+      enabled: false
+  connectorSubtype: api
+  connectorType: source
+  definitionId: cf0b434c-792a-4f87-b3dc-40cd90d482fe
+  dockerImageTag: 0.1.0
+  dockerRepository: airbyte/source-snapchat-story-studio
+  githubIssueLabel: source-snapchat-story-studio
+  icon: snapchat-story-studio.svg
+  license: MIT
+  name: Snapchat Story Studio
+  releaseDate: 2023-08-01
+  releaseStage: alpha
+  documentationUrl: https://docs.airbyte.com/integrations/sources/snapchat-story-studio
+  tags:
+    - language:lowcode
+metadataSpecVersion: "1.0"

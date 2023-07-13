@@ -1,0 +1,6 @@
+{
+  "start_date": "2023-01-01",
+  "client_id": "<client_id>",
+  "client_secret": "<client-secret>",
+  "refresh_token": "<refresh-token>"
+}

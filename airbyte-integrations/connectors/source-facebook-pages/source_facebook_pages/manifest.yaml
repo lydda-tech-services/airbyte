@@ -68,10 +68,13 @@ definitions:
         $ref: "#/definitions/requester"
         request_parameters:
           fields: |
-            {{
+            {{ 
               ','.join([
               'id',
               'about',
+              'fan_count',
+              'followers_count',
+              'name'
               ])
             }}
 
@@ -213,7 +216,7 @@ definitions:
         $ref: "#/definitions/requester"
         request_parameters:
           metric: |
-            {{
+            {{ 
               ','.join([
               'page_tab_views_login_top_unique',
               'page_tab_views_login_top',

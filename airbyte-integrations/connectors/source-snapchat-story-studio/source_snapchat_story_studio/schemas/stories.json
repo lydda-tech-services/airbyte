@@ -13,6 +13,9 @@
     },
     "snapList": {
       "type": ["null", "array"]
+    },
+    "publisher_id": {
+      "type": ["null", "string"]
     }
   }
 }

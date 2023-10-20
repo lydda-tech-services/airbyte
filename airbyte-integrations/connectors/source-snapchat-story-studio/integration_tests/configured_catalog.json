@@ -2,7 +2,7 @@
   "streams": [
     {
       "stream": {
-        "name": "daily_behavior",
+        "name": "publishers",
         "json_schema": {},
         "supported_sync_modes": ["full_refresh"]
       },

@@ -173,6 +173,58 @@ definitions:
           - path: ["publisher_id"]
             value: "{{ stream_slice.id }}"
 
+  revenue_stories_stream:
+    $ref: "#/definitions/base_stream"
+    retriever:
+      $ref: "#/definitions/retriever"
+      partition_router:
+        type: SubstreamPartitionRouter
+        parent_stream_configs:
+          - type: ParentStreamConfig
+            stream: "#/definitions/publishers_stream"
+            parent_key: creatorUsername
+            partition_field: creator_username
+      requester:
+        $ref: "#/definitions/requester"
+        request_parameters:
+          start_date: "{{ config['start_date'] }}"
+          end_date: "{{ now_utc().strftime('%Y-%m-%d') }}"
+    $parameters:
+      name: "revenue_stories"
+      primary_key: "id"
+      path: "revenue/creator/{{ stream_slice.creator_username }}/stories"
+    transformations:
+      - type: AddFields
+        fields:
+          - path: ["creator_username"]
+            value: "{{ stream_slice.creator_username }}"
+
+  revenue_creator_aggregate_stream:
+    $ref: "#/definitions/base_stream"
+    retriever:
+      $ref: "#/definitions/retriever"
+      partition_router:
+        type: SubstreamPartitionRouter
+        parent_stream_configs:
+          - type: ParentStreamConfig
+            stream: "#/definitions/publishers_stream"
+            parent_key: creatorUsername
+            partition_field: creator_username
+      requester:
+        $ref: "#/definitions/requester"
+        request_parameters:
+          start_date: "{{ config['start_date'] }}"
+          end_date: "{{ now_utc().strftime('%Y-%m-%d') }}"
+    $parameters:
+      name: "revenue_creator_aggregate"
+      primary_key: "id"
+      path: "revenue/creator/{{ stream_slice.creator_username }}/aggregate"
+    transformations:
+      - type: AddFields
+        fields:
+          - path: ["creator_username"]
+            value: "{{ stream_slice.creator_username }}"
+
 streams:
   - "#/definitions/publishers_stream"
   - "#/definitions/daily_audience_stream"
@@ -180,6 +232,8 @@ streams:
   - "#/definitions/stories_stream"
   - "#/definitions/revenue_editions_stream"
   - "#/definitions/revenue_aggregate_stream"
+  - "#/definitions/revenue_stories_stream"
+  - "#/definitions/revenue_creator_aggregate_stream"
 
 check:
   type: CheckStream

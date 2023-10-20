@@ -2,16 +2,16 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "id": {
+    "request_status": {
       "type": ["null", "string"]
     },
-    "legacyId": {
+    "request_id": {
       "type": ["null", "string"]
     },
-    "name": {
-      "type": ["null", "string"]
+    "stories": {
+      "type": ["null", "array"]
     },
-    "creatorUsername": {
+    "creator_username": {
       "type": ["null", "string"]
     }
   }

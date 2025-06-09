@@ -23,6 +23,7 @@ COPY --from=builder /install /usr/local
 # add default timezone settings
 COPY --from=builder /usr/share/zoneinfo/Etc/UTC /etc/localtime
 RUN echo "Etc/UTC" > /etc/timezone
+RUN pip install --no-cache-dir airbyte-cdk==0.78.6
 
 # bash is installed for more convenient debugging.
 RUN apk --no-cache add bash
@@ -34,5 +35,5 @@ COPY source_snapchat_story_studio ./source_snapchat_story_studio
 ENV AIRBYTE_ENTRYPOINT "python /airbyte/integration_code/main.py"
 ENTRYPOINT ["python", "/airbyte/integration_code/main.py"]
 
-LABEL io.airbyte.version=0.1.4
+LABEL io.airbyte.version=0.1.5
 LABEL io.airbyte.name=airbyte/source-snapchat-story-studio

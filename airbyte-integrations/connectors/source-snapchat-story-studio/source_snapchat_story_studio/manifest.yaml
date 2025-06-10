@@ -20,6 +20,8 @@ definitions:
       response_filters:
         - http_codes: [500, 504]
           action: IGNORE
+        - http_codes: [403]
+          action: RETRY
   retriever:
     type: SimpleRetriever
     record_selector:
